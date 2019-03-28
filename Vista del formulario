@@ -1,0 +1,70 @@
+ @model tarea_helpers.Models.Datos
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+<head>
+ 
+</head>
+<body>
+    <h2>Datos Personales</h2>
+
+    <form action="Datos" method="post">
+
+        @Html.Label("nombre", "Nombre")
+        @Html.TextBox("nombre", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+
+        @Html.Label("apellido", "Apellido")
+        @Html.TextBox("apellido", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+
+        @Html.Label("telefono", "Telefono")
+        @Html.TextBox("telefono", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+
+        @Html.Label("edad", "Edad")
+        @Html.TextBox("edad", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.edad, "", new { @class = "text-danger" })
+
+        @Html.Label("cedula", "Cedula")
+        @Html.TextBox("cedula", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.cedula, "", new { @class = "text-danger" })
+
+        @Html.Label("correo", "Correo")
+        @Html.TextBox("correo", " ", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+
+        @Html.Label("genero", "Genero")
+        <br />
+        @Html.DropDownList("genero", new List<SelectListItem>
+                    {
+                    new SelectListItem{Text="Masculino", Value = "Masculino"},
+                    new SelectListItem{Text="Femenino", Value = "Femenino"}},
+                    new { @class = "form-control" })
+        <br />
+        @Html.Label("estado_civil", "Estado Civil")
+        <br />
+        Casado @Html.RadioButton("estado_civil", "Casado")
+        Soltero  @Html.RadioButton("estado_civil", "Casado")
+        <br />
+        Viudo  @Html.RadioButton("estado_civil", "Viudo")
+        Union Libre  @Html.RadioButton("estado_civil", "Union Libre")
+        <br />
+        @Html.Label("hobbys", "Hobbys")
+        <br />
+        Basketball <input type="checkbox" value="Basketball" />
+        Video Juegos <input type="checkbox" value="Video Juegos" />
+        Netflix <input type="checkbox" value="Netflix" />
+        Vaguear <input type="checkbox" value="Vaguear" />
+        <br />
+        <input type="submit" value="Registrar" class="btn-primary" name="registrar" />
+
+    </form>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</body>
+</html>
