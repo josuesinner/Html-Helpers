@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using tarea_helpers.Models;
+
+namespace tarea_helpers.Controllers
+{
+    public class DatosController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Datos(Datos datos)
+        {
+            datos.nombre = Request.Form["nombre"].ToString();
+            datos.apellido = Request.Form["apellido"].ToString();
+            datos.telefono = Request.Form["telefono"].ToString();
+            datos.edad = Convert.ToInt32(Request.Form["edad"]);
+            datos.cedula = Request.Form["cedula"].ToString();
+            datos.correo = Request.Form["correo"].ToString();
+            datos.genero = Request.Form["genero"].ToString();
+            datos.estado_civil = Request.Form["estado_civil"].ToString();
+            return View(datos);
+
+            //eliminar los espacios en la edad y la cedula para que no tire error en la vista del formulario
+        }
+    }
+}
